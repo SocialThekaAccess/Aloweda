@@ -1,0 +1,90 @@
+/* ─── IMAGE CAROUSEL ─── */
+.img-carousel {
+  width: 100%;
+  overflow: hidden;
+  background: var(--cream);
+  padding: 32px 0;
+  position: relative;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Fade edges */
+.img-carousel::before,
+.img-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+.img-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--cream) 0%, transparent 100%);
+}
+.img-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--cream) 0%, transparent 100%);
+}
+
+/* Scrolling track */
+.img-carousel__track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: carousel-scroll 24s linear infinite;
+}
+.img-carousel:hover .img-carousel__track {
+  animation-play-state: paused;
+}
+
+/* Each item — no card box, just the image with a divider */
+.img-carousel__item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 48px;
+  border-right: 1px solid var(--border);
+}
+.img-carousel__item:last-child { border-right: none; }
+
+/* Image */
+.img-carousel__img {
+  height: 44px;
+  width: auto;
+  max-width: 44px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.img-carousel__item:hover .img-carousel__img {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* Label */
+.img-carousel__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dark);
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  font-family: 'Inter', sans-serif;
+}
+
+@keyframes carousel-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .img-carousel { padding: 24px 0; }
+  .img-carousel__item { padding: 0 28px; }
+  .img-carousel__img { height: 48px; max-width: 120px; }
+}
