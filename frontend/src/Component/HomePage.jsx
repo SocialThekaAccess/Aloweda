@@ -9,6 +9,7 @@ import Navbar from '../Navbar/navbar'
 import BestSellers from './BestSeller'
 import ImageCarousel from './ImageCarousel'
 import CategorySlider from './CategorySlider'
+import Footer from '../Footer/Footer'
 import './HomePage.css'
 
 /* ─────────────── DATA ─────────────── */
@@ -261,63 +262,12 @@ function Testimonials() {
   )
 }
 
-/* ─────────────── FOOTER ─────────────── */
-
-function Footer() {
-  return (
-    <footer className="footer">
-      <div className="footer__inner">
-        <div className="footer__brand">
-          <img src={AlowedaLogo} alt="Aloweda" className="footer__logo" />
-          <p className="footer__tagline">Sensible · Simple · Synergy</p>
-          <p className="footer__bio">Ayurvedic skincare rooted in tradition, refined by science.</p>
-        </div>
-
-        <div className="footer__links">
-          <div className="footer__col">
-            <h4 className="footer__col-title">Shop</h4>
-            {categories.map((c) => <a key={c.label} href="#" className="footer__link">{c.label}</a>)}
-          </div>
-          <div className="footer__col">
-            <h4 className="footer__col-title">Company</h4>
-            {['About Us', 'Our Story', 'Blog', 'Press', 'Careers'].map((l) => (
-              <a key={l} href="#" className="footer__link">{l}</a>
-            ))}
-          </div>
-          <div className="footer__col">
-            <h4 className="footer__col-title">Support</h4>
-            {['Track Order', 'Returns', 'Shipping Policy', 'Privacy Policy', 'Contact Us'].map((l) => (
-              <a key={l} href="#" className="footer__link">{l}</a>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="footer__bottom">
-        <p>© 2026 Aloweda. All rights reserved.</p>
-        <div className="footer__socials">
-          <a href="#" aria-label="Instagram" className="footer__social">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-            </svg>
-          </a>
-          <a href="#" aria-label="YouTube" className="footer__social">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" /><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </footer>
-  )
-}
-
 /* ─────────────── ROOT ─────────────── */
 
-export default function HomePage() {
+export default function HomePage({ onNavigate }) {
   return (
     <div className="page">
-      <Navbar />
+      <Navbar onNavigate={onNavigate} />
       <main>
         <HeroSlider />
         <MarqueeStrip />

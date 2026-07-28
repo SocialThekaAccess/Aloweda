@@ -50,7 +50,7 @@ export default function Navbar({ onNavigate, cartCount = 0 }) {
                 </a>
                 {CATEGORIES.map((c) => (
                   <a key={c.id} href="#" className="navbar__dropdown-item"
-                    onClick={e => { e.preventDefault(); nav('shop', { category: c.id }) }}>
+                    onClick={e => { e.preventDefault(); nav(c.id) }}>
                     {c.label}
                   </a>
                 ))}
@@ -120,7 +120,7 @@ export default function Navbar({ onNavigate, cartCount = 0 }) {
           <div className="navbar__mobile-divider">Shop by Category</div>
           {CATEGORIES.map((c) => (
             <a key={c.id} href="#" className="navbar__mobile-link navbar__mobile-link--sub"
-              onClick={e => { e.preventDefault(); nav('shop', { category: c.id }) }}>
+              onClick={e => { e.preventDefault(); nav(c.id) }}>
               {c.icon} {c.label}
             </a>
           ))}

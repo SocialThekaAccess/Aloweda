@@ -1,11 +1,11 @@
 import HairCare from '../assets/HairCare.png'
 import SmartSkinCare from '../assets/SmartSkinCare.png'
-import LC1 from '../LipCareImg/LipCare1.jpg'
+import LipCarePng from '../assets/LipCare.png'
 import './CategorySlider.css'
 
 const categoryCards = [
   { id: 1, title: 'Hair Care',      img: HairCare      },
-  { id: 2, title: 'Lip Care',       img: LC1           },
+  { id: 2, title: 'Lip Care',       img: LipCarePng    },
   { id: 3, title: 'Smart Skincare', img: SmartSkinCare },
 ]
 

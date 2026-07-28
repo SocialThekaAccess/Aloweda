@@ -1,0 +1,164 @@
+/* ─── SHARED SHOP PAGE ─── */
+.shop-page {
+  width: 100%;
+  background: var(--warm-white);
+  min-height: 100vh;
+  padding-top: 88px;
+}
+
+/* Top bar */
+.shop-page__hero {
+  text-align: center;
+  padding: 48px 48px 32px;
+  border-bottom: 1px solid var(--border);
+}
+.shop-page__hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+.shop-page__topbar {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 48px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.shop-page__meta {
+  font-size: 13px;
+  color: var(--text-light);
+  font-family: 'Inter', sans-serif;
+}
+.shop-page__meta strong { color: var(--text-dark); font-weight: 600; }
+
+/* Products grid */
+.shop-page__grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 48px 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Product card — reuse BestSeller styles */
+.sp-card {
+  background: var(--warm-white);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.sp-card:hover { transform: translateY(-3px); }
+.sp-card__img-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+  aspect-ratio: 3 / 4;
+}
+.sp-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
+}
+.sp-card:hover .sp-card__img { transform: scale(1.04); }
+.sp-card__body { padding: 14px 4px 8px; }
+.sp-card__name {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  line-height: 1.45;
+  font-family: 'Inter', sans-serif;
+}
+.sp-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.sp-card__price {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+}
+.sp-card__mrp {
+  font-size: 13px;
+  font-weight: 400;
+  color: #999;
+  text-decoration: line-through;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Bottom info section */
+.shop-page__info {
+  background: white;
+  text-align: center;
+  padding: 80px 48px;
+  border-top: 1px solid var(--border);
+}
+.shop-page__info-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+.shop-page__info-desc {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+}
+.shop-page__quiz-btn {
+  display: inline-block;
+  padding: 14px 48px;
+  border: 1.5px solid var(--text-dark);
+  background: transparent;
+  color: var(--text-dark);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+.shop-page__quiz-btn:hover {
+  background: var(--text-dark);
+  color: white;
+}
+
+/* Add to bag btn */
+.sp-add-btn {
+  background: none;
+  border: 1px solid var(--text-dark);
+  color: var(--text-dark);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+}
+.sp-add-btn:hover { background: var(--text-dark); color: white; }
+
+@media (max-width: 1024px) { .shop-page__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .shop-page__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 24px 20px 60px; }
+  .shop-page__topbar { padding: 20px; }
+  .shop-page__info { padding: 60px 24px; }
+}

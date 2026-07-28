@@ -9,13 +9,13 @@ import Slide4 from '../assets/HomeSlider4.png'
 import Slide5 from '../assets/HomeSlider5.png'
 
 export const CATEGORIES = [
-  { id: 'serums',       label: 'Serums',       icon: '💧' },
   { id: 'creams',       label: 'Creams',        icon: '🫙' },
-  { id: 'moisturisers', label: 'Moisturisers',  icon: '✨' },
-  { id: 'tattoo',       label: 'Tattoo Care',   icon: '🖋️' },
-  { id: 'lip',          label: 'Lip Care',      icon: '💋' },
   { id: 'hair',         label: 'Hair Care',     icon: '💆' },
+  { id: 'lip',          label: 'Lip Care',      icon: '💋' },
+  { id: 'moisturisers', label: 'Moisturisers',  icon: '✨' },
+  { id: 'serums',       label: 'Serums',        icon: '💧' },
   { id: 'rituals',      label: 'Skin Rituals',  icon: '🌿' },
+  { id: 'tattoo',       label: 'Tattoo Care',   icon: '🖋️' },
 ]
 
 export const PRODUCTS = [
