@@ -271,7 +271,7 @@ export default function HomePage({ onNavigate }) {
       <main>
         <HeroSlider />
         <MarqueeStrip />
-        <BestSellers />
+        <BestSellers onNavigate={onNavigate} />
         <CategorySlider />
         <ImageCarousel />
         <Categories />

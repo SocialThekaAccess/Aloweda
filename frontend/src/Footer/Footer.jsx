@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import AlowedaLogo from '../assets/AlowedaLogo.png'
 import './Footer.css'
 
 /* ── Scroll To Top ── */
@@ -35,7 +36,7 @@ export default function Footer() {
 
           {/* Col 1 — Brand */}
           <div className="footer__brand">
-            <h3 className="footer__brand-name">ALOWEDA</h3>
+            <img src={AlowedaLogo} alt="Aloweda" className="footer__logo" />
             <p className="footer__bio">
               At Aloweda, we believe wellness starts with conscious choices. From skincare
               and haircare to nutrition, our mission is to deliver high-quality, nature-inspired
@@ -82,7 +83,7 @@ export default function Footer() {
             <a href="tel:+919972269191" className="footer__pill">+91 99722 69191</a>
             <a href="mailto:marketing@aloweda.com" className="footer__pill">MARKETING@ALOWEDA.COM</a>
           </div>
-          <p className="footer__copy">© 2026, Aloweda Powered by Shopify</p>
+          <p className="footer__copy">© 2026, Aloweda. All rights reserved.</p>
         </div>
       </footer>
 

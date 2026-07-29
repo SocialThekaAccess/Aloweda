@@ -191,3 +191,33 @@
   .bs__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .best-sellers__tabs { gap: 20px; }
 }
+
+/* ─── VIEW MORE CARD ─── */
+.product-card--viewmore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--warm-white);
+  border: 1.5px dashed var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  min-height: 380px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.product-card--viewmore:hover {
+  border-color: var(--text-dark);
+  background: #f5f0e8;
+}
+.bs__viewmore-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  animation: blink-cta 1.6s ease-in-out infinite;
+}
+@keyframes blink-cta {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}

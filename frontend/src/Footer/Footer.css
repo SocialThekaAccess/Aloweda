@@ -1,72 +1,70 @@
 /* ─── FOOTER ─── */
 .footer {
-  background: var(--text-dark);
-  color: var(--cream);
+  background: #ffffff;
+  color: #333;
   padding: 72px 48px 0;
+  border-top: 1px solid #eee;
 }
 
 .footer__inner {
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  grid-template-columns: 1.4fr 1fr 1.2fr 1.2fr;
   gap: 60px;
-  padding-bottom: 48px;
+  padding-bottom: 56px;
 }
 
 /* Col 1 — Brand */
-.footer__brand-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--cream);
+.footer__logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
   margin-bottom: 16px;
+  display: block;
 }
 .footer__bio {
   font-size: 13px;
-  color: rgba(245, 240, 232, 0.55);
+  color: #666;
   line-height: 1.8;
-  max-width: 280px;
 }
 
 /* Columns */
 .footer__col {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 .footer__col-title {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 4px;
+  color: #222;
+  margin-bottom: 2px;
   letter-spacing: 0.3px;
 }
 .footer__link {
   font-size: 13px;
-  color: rgba(245, 240, 232, 0.55);
+  color: #666;
   transition: color 0.2s;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
   line-height: 1.5;
 }
-.footer__link:hover { color: var(--cream); }
+.footer__link:hover { color: #222; }
 
 /* Newsletter */
 .footer__newsletter-text {
   font-size: 13px;
-  color: rgba(245, 240, 232, 0.55);
+  color: #666;
   line-height: 1.7;
-  margin-bottom: 4px;
 }
 .footer__signup-btn {
   align-self: flex-end;
-  padding: 10px 24px;
+  padding: 10px 28px;
   background: transparent;
-  border: 1.5px solid rgba(245, 240, 232, 0.5);
-  color: var(--cream);
+  border: 1.5px solid #aaa;
+  color: #333;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -76,9 +74,9 @@
   margin-top: 8px;
 }
 .footer__signup-btn:hover {
-  background: var(--cream);
-  color: var(--text-dark);
-  border-color: var(--cream);
+  background: #222;
+  color: #fff;
+  border-color: #222;
 }
 
 /* Bottom bar */
@@ -90,7 +88,7 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
-  border-top: 1px solid rgba(245, 240, 232, 0.1);
+  border-top: 1px solid #eee;
 }
 .footer__contact-pills {
   display: flex;
@@ -98,22 +96,22 @@
 }
 .footer__pill {
   padding: 8px 20px;
-  border: 1px solid rgba(245, 240, 232, 0.3);
+  border: 1px solid #ccc;
   border-radius: 50px;
   font-size: 12px;
-  color: rgba(245, 240, 232, 0.7);
+  color: #555;
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.5px;
   text-decoration: none;
   transition: border-color 0.2s, color 0.2s;
 }
 .footer__pill:hover {
-  border-color: var(--cream);
-  color: var(--cream);
+  border-color: #333;
+  color: #333;
 }
 .footer__copy {
   font-size: 12px;
-  color: rgba(245, 240, 232, 0.3);
+  color: #aaa;
   letter-spacing: 0.3px;
   align-self: flex-start;
 }
@@ -127,13 +125,13 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: var(--warm-white);
-  border: 1.5px solid var(--border);
-  box-shadow: 0 4px 20px rgba(44, 36, 22, 0.14);
+  background: #fff;
+  border: 1.5px solid #ddd;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-dark);
+  color: #333;
   cursor: pointer;
   opacity: 0;
   transform: translateY(12px);
@@ -146,24 +144,18 @@
   pointer-events: auto;
 }
 .scroll-top:hover {
-  background: var(--text-dark);
-  color: var(--cream);
-  border-color: var(--text-dark);
+  background: #222;
+  color: #fff;
+  border-color: #222;
 }
 
 /* ─── Responsive ─── */
 @media (max-width: 1024px) {
-  .footer__inner {
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-  }
+  .footer__inner { grid-template-columns: 1fr 1fr; gap: 48px; }
 }
 @media (max-width: 600px) {
   .footer { padding: 56px 20px 0; }
-  .footer__inner {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
+  .footer__inner { grid-template-columns: 1fr; gap: 36px; }
   .footer__bottom { align-items: flex-start; }
   .footer__contact-pills { flex-direction: column; }
   .footer__signup-btn { align-self: flex-start; }

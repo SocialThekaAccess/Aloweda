@@ -6,8 +6,8 @@ import LC1 from '../LipCareImg/LipCare1.jpg'
 import LC2 from '../LipCareImg/LipCare2.jpg'
 
 const products = [
-  { id:1, img:LC1, name:'Lip Butter 8 Gram: Butters, Oils & Honey. ZERO CHEMICALS, NO PRESERVATIVES',                              price:'₹ 75' },
-  { id:2, img:LC2, name:'Lip Butter 15 Gram: Butters, Oils & Honey. NO CHEMICALS, NO PRESERVATIVES. NOT LIP BALM', price:'From ₹ 165' },
+  { id:1, img:LC1, name:'Lip Butter 8 Gram: Butters, Oils & Honey.ZERO CHEMICALS, NO PRESERVATIVES',                    price:'Rs. 75.00' },
+  { id:2, img:LC2, name:'Lip Butter 15 Gram: Butters, Oils & Honey. NO CHEMICALS, NO PRESERVATIVES. NOT LIP BALM',  price:'From Rs. 165.00' },
 ]
 
 export default function LipCarePage({ onNavigate }) {

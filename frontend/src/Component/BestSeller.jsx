@@ -26,28 +26,28 @@ import LC2 from '../LipCareImg/LipCare2.jpg'
 /* ── Product data per tab ─────────────────────────────────────────────── */
 const productsByTab = {
   skincare: [
-    { id:1,  img: SC1,  name: 'Glow Essence Face Serum',     price: '₹ 799', mrp: '₹ 999', tag: 'Best Seller' },
-    { id:2,  img: SC2,  name: 'The Day Cream SPF 30',         price: '₹ 899', mrp: '₹ 1099',tag: 'New' },
-    { id:3,  img: SC3,  name: 'Super Glow Face Serum',        price: '₹ 749', mrp: '₹ 949', tag: 'Trending' },
-    { id:4,  img: SC4,  name: 'Tone & Texture Serum',         price: '₹ 849', mrp: '₹ 1049',tag: 'Best Seller' },
-    { id:5,  img: SC5,  name: 'Radiance Night Cream',         price: '₹ 999', mrp: '₹ 1299',tag: 'Premium' },
-    { id:6,  img: SC6,  name: 'Vitamin C Brightening Serum',  price: '₹ 699', mrp: '₹ 899', tag: 'Best Seller' },
-    { id:7,  img: SC7,  name: 'Hydra Boost Moisturiser',      price: '₹ 649', mrp: '₹ 799', tag: 'Popular' },
-    { id:8,  img: SC8,  name: 'Retinol Repair Serum',         price: '₹ 1099',mrp: '₹ 1399',tag: 'Premium' },
-    { id:9,  img: SC9,  name: 'SPF 50 Sunscreen',             price: '₹ 549', mrp: '₹ 699', tag: 'Must Have' },
-    { id:10, img: SC10, name: 'Niacinamide 10% Serum',        price: '₹ 599', mrp: '₹ 749', tag: 'Trending' },
-    { id:11, img: SC11, name: 'AHA BHA Exfoliating Serum',    price: '₹ 799', mrp: '₹ 999', tag: 'New' },
-    { id:12, img: SC12, name: 'Ceramide Repair Cream',        price: '₹ 849', mrp: '₹ 1049',tag: 'Best Seller' },
-    { id:13, img: SC13, name: 'Under Eye Serum',              price: '₹ 699', mrp: '₹ 899', tag: 'Popular' },
-    { id:14, img: SC14, name: 'Saffron Glow Face Oil',        price: '₹ 899', mrp: '₹ 1199',tag: 'Premium' },
-    { id:15, img: SC15, name: 'Kojic Acid Serum',             price: '₹ 749', mrp: '₹ 949', tag: 'Trending' },
+    { id:1,  img: SC1,  name: 'YOUR SIMPLE ROUTINE: The Day Cream + The Night Cream + Lip Butter',                                            price: '₹ 799', mrp: '',        tag: 'Best Seller' },
+    { id:2,  img: SC2,  name: 'PERFECT COMPLEXION RITUAL: Pigment Control Serum + The Day Cream + Complexion Cream + Smooth Perfection Serum', price: '₹ 999', mrp: '',        tag: 'Best Seller' },
+    { id:3,  img: SC3,  name: 'RITUAL OF RADIANCE: Super Glow Serum 30 ml + The Day Cream + Radiance Cream 50 gram',                          price: '₹ 999', mrp: '',        tag: 'Best Seller' },
+    { id:4,  img: SC4,  name: 'Hyaluronic Acid, SPF 30 & Vitamin E : The Day Cream 50 G',                                                     price: '₹ 249', mrp: '',        tag: 'Best Seller' },
+    { id:5,  img: SC5,  name: 'Retinol 1%, Niacinamide 10 %, Aloe Vera Extract & Carrot oil: The Night Cream 50 G',                           price: '₹ 399', mrp: '',        tag: 'Best Seller' },
+    { id:6,  img: SC6,  name: 'Saffron Face Oil 30 ml: Saffron Essential Oil, Sweet Almond oil, Grape Seed Oil, Honey & Ghee',                price: '₹ 799', mrp: '',        tag: 'Best Seller' },
+    { id:7,  img: SC7,  name: 'Alpha Arbutin 2%, Vitamin C 15 % & Micro Crystalline Wax: Complexion Cream 50 G',                              price: '₹ 399', mrp: '',        tag: 'Best Seller' },
+    { id:8,  img: SC8,  name: 'Vitamin C 15%, Ferulic Acid 1% & Niacinamide 5% : Super Glow Serum 30 ml',                                     price: '₹ 549', mrp: '',        tag: 'Best Seller' },
+    { id:9,  img: SC9,  name: 'Alpha Arbutin 2%, Aloe Vera Extract, Ceramides & Kojic Acid 1%: Pigment Control Serum 30 ml',                  price: '₹ 399', mrp: '',        tag: 'Best Seller' },
+    { id:10, img: SC10, name: 'Retinol 0.3%, Copper Tripeptide, Alpha Arbutin & Niacinamide: Wrinkles & Lines Cream 50 G',                    price: '₹ 449', mrp: '',        tag: 'Best Seller' },
+    { id:11, img: SC11, name: 'Encapsulated Retinol 1 %, Grape Seed Extract, & Ceramides : Lines & Wrinkles Serum 30 ml',                     price: '₹ 499', mrp: '',        tag: 'Best Seller' },
+    { id:12, img: SC12, name: 'Niacinamide 10 %, Acetyl Glucosamine & Ceramides: Tone & Texture Serum 30 ml',                                 price: '₹ 375', mrp: '₹ 545',  tag: 'Best Seller' },
+    { id:13, img: SC13, name: 'Salicylic Acid 2%, Witch Hazel Extract & Squalene: Smooth Perfection Serum 30 ml',                             price: '₹ 449', mrp: '',        tag: 'Best Seller' },
+    { id:14, img: SC14, name: 'Vitamin C 20%, Kojic Acid, Avocado Extract & Argan Oil : Radiance Cream 50 G',                                 price: '₹ 399', mrp: '',        tag: 'Best Seller' },
+    { id:15, img: SC15, name: 'Anti Acne Face wash: 100 ml, Salicylic Acid 2% for Oily & Acne Prone Skin',                                    price: '₹ 185', mrp: '',        tag: 'Best Seller' },
   ],
   lipcare: [
-    { id:1, img: LC1, name: 'Velvet Lip Butter',  price: '₹ 299', mrp: '₹ 399', tag: 'Fan Favourite' },
-    { id:2, img: LC2, name: 'Lip Repair Balm',    price: '₹ 349', mrp: '₹ 449', tag: 'Best Seller'   },
+    { id:1, img: LC1, name: 'Lip Butter 8 Gram: Butters, Oils & Honey. ZERO CHEMICALS, NO PRESERVATIVES',                   price: '₹ 75',  mrp: '', tag: 'Best Seller' },
+    { id:2, img: LC2, name: 'Lip Butter 15 Gram: Butters, Oils & Honey. NO CHEMICALS, NO PRESERVATIVES. NOT LIP BALM',  price: 'From ₹ 165', mrp: '', tag: 'Best Seller' },
   ],
   haircare: [
-    { id:1, img: HairCareImg, name: 'Total Hair Therapy Serum', price: '₹ 699', mrp: '₹ 899', tag: 'Best Seller' },
+    { id:1, img: HairCareImg, name: 'Redensyl 5%, Anagain 5%, Rice water & Biotin: Total Hair Therapy Serum 50 ml', price: '₹ 575', mrp: '', tag: 'Best Seller' },
   ],
 }
 
@@ -58,24 +58,35 @@ const tabs = [
 ]
 
 const VISIBLE = 4 // cards visible at a time
+const SKINCARE_LIMIT = 10 // max skincare products before View More
 
-export default function BestSellers() {
+export default function BestSellers({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('skincare')
   const [startIdx, setStartIdx] = useState(0)
-  const products = productsByTab[activeTab]
 
   const handleTab = (id) => {
     setActiveTab(id)
     setStartIdx(0)
   }
 
+  // For skincare, cap at SKINCARE_LIMIT then add a View More slot
+  const rawProducts = productsByTab[activeTab]
+  const products = activeTab === 'skincare'
+    ? rawProducts.slice(0, SKINCARE_LIMIT)
+    : rawProducts
+
+  // showViewMore = skincare tab AND user has scrolled to the last window
+  const showViewMore = activeTab === 'skincare'
+
   const canPrev = startIdx > 0
-  const canNext = startIdx + VISIBLE < products.length
+  const canNext = startIdx + VISIBLE < products.length + (showViewMore ? 1 : 0)
 
   const prev = () => { if (canPrev) setStartIdx(i => i - 1) }
   const next = () => { if (canNext) setStartIdx(i => i + 1) }
 
-  const visible = products.slice(startIdx, startIdx + VISIBLE)
+  // Slots: product cards + optional View More card
+  const slots = [...products, ...(showViewMore ? [{ id: 'viewmore' }] : [])]
+  const visible = slots.slice(startIdx, startIdx + VISIBLE)
 
   return (
     <section className="section best-sellers">
@@ -99,27 +110,36 @@ export default function BestSellers() {
 
       {/* Cards */}
       <div className="bs__grid">
-        {visible.map(p => (
-          <div key={p.id} className="product-card">
-            <div className="product-card__img-wrap">
-              <img src={p.img} alt={p.name} className="product-card__img" />
-              <span className="product-card__tag">{p.tag}</span>
-              <div className="product-card__overlay">
-                <button className="btn btn--white">Quick View</button>
+        {visible.map(p => {
+          if (p.id === 'viewmore') {
+            return (
+              <div key="viewmore" className="product-card product-card--viewmore" onClick={() => onNavigate && onNavigate('skincare')}>
+                <span className="bs__viewmore-text">View More</span>
               </div>
-            </div>
-            <div className="product-card__body">
-              <h3 className="product-card__name">{p.name}</h3>
-              <div className="product-card__footer">
-                <div className="product-card__prices">
-                  <span className="product-card__price">{p.price}</span>
-                  <span className="product-card__mrp">{p.mrp}</span>
+            )
+          }
+          return (
+            <div key={p.id} className="product-card">
+              <div className="product-card__img-wrap">
+                <img src={p.img} alt={p.name} className="product-card__img" />
+                <span className="product-card__tag">{p.tag}</span>
+                <div className="product-card__overlay">
+                  <button className="btn btn--white">Quick View</button>
                 </div>
-                <button className="btn btn--outline-dark btn--sm">Add to Bag</button>
+              </div>
+              <div className="product-card__body">
+                <h3 className="product-card__name">{p.name}</h3>
+                <div className="product-card__footer">
+                  <div className="product-card__prices">
+                    <span className="product-card__price">{p.price}</span>
+                    {p.mrp && <span className="product-card__mrp">{p.mrp}</span>}
+                  </div>
+                  <button className="btn btn--outline-dark btn--sm">Add to Bag</button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       {/* Bottom bar: divider + arrows */}
