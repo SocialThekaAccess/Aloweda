@@ -1,16 +1,48 @@
+import { useState, useMemo } from 'react'
 import Navbar from '../Navbar/navbar'
 import Footer from '../Footer/Footer'
 import './ShopPage.css'
+import './LipCare.css'
 
 import LC1 from '../LipCareImg/LipCare1.jpg'
 import LC2 from '../LipCareImg/LipCare2.jpg'
 
 const products = [
-  { id:1, img:LC1, name:'Lip Butter 8 Gram: Butters, Oils & Honey.ZERO CHEMICALS, NO PRESERVATIVES',                    price:'Rs. 75.00' },
-  { id:2, img:LC2, name:'Lip Butter 15 Gram: Butters, Oils & Honey. NO CHEMICALS, NO PRESERVATIVES. NOT LIP BALM',  price:'From Rs. 165.00' },
+  { 
+    id: 1, 
+    img: LC1, 
+    name: 'Lip Butter 8 Gram: Butters, Oils & Honey.ZERO CHEMICALS, NO PRESERVATIVES', 
+    category: 'Lip Butter',
+    keywords: 'lip butter butters oils honey natural organic chemical free preservative free',
+    price: 'Rs. 75.00' 
+  },
+  { 
+    id: 2, 
+    img: LC2, 
+    name: 'Lip Butter 15 Gram: Butters, Oils & Honey. NO CHEMICALS, NO PRESERVATIVES. NOT LIP BALM', 
+    category: 'Lip Butter',
+    keywords: 'lip butter butters oils honey natural organic chemical free preservative free balm',
+    price: 'From Rs. 165.00' 
+  },
 ]
 
-export default function LipCarePage({ onNavigate }) {
+export default function LipCarePage({ onNavigate, searchQuery }) {
+  const [localSearchQuery, setLocalSearchQuery] = useState(searchQuery || '')
+
+  // Search filter logic
+  const filteredProducts = useMemo(() => {
+    const query = (localSearchQuery || searchQuery || '').toLowerCase().trim()
+    if (!query) return products
+
+    return products.filter(product => {
+      const searchableText = `${product.name} ${product.category} ${product.keywords}`.toLowerCase()
+      return searchableText.includes(query)
+    })
+  }, [localSearchQuery, searchQuery])
+
+  const handleClearSearch = () => {
+    setLocalSearchQuery('')
+  }
   return (
     <div className="shop-page">
       <Navbar onNavigate={onNavigate} />
@@ -19,26 +51,73 @@ export default function LipCarePage({ onNavigate }) {
         <h1 className="shop-page__hero-title">Lip Care</h1>
       </div>
 
+      {/* Search Results Banner */}
+      {(searchQuery || localSearchQuery) && (
+        <div className="search-results-banner">
+          <div className="search-results-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+            </svg>
+            <span className="search-results-text">
+              Showing {filteredProducts.length} result{filteredProducts.length !== 1 ? 's' : ''} for "{localSearchQuery || searchQuery}"
+            </span>
+            <button className="search-clear-btn" onClick={handleClearSearch} aria-label="Clear search">✕</button>
+          </div>
+        </div>
+      )}
+
       <div className="shop-page__topbar">
-        <span className="shop-page__meta"><strong>{products.length} Products</strong></span>
+        <span className="shop-page__meta">
+          <strong>{filteredProducts.length} Product{filteredProducts.length !== 1 ? 's' : ''}</strong>
+        </span>
+
+        {/* Local Search Bar */}
+        <div className="shop-page__search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+          </svg>
+          <input
+            type="text"
+            placeholder="Search lip care products..."
+            value={localSearchQuery}
+            onChange={e => setLocalSearchQuery(e.target.value)}
+            className="shop-page__search-input"
+          />
+          {localSearchQuery && (
+            <button className="shop-page__search-clear" onClick={handleClearSearch}>✕</button>
+          )}
+        </div>
       </div>
 
-      <div className="shop-page__grid">
-        {products.map(p => (
-          <div key={p.id} className="sp-card">
-            <div className="sp-card__img-wrap">
-              <img src={p.img} alt={p.name} className="sp-card__img" />
-            </div>
-            <div className="sp-card__body">
-              <p className="sp-card__name">{p.name}</p>
-              <div className="sp-card__footer">
-                <span className="sp-card__price">{p.price}</span>
-                <button className="sp-add-btn">Add to Bag</button>
+      {/* Products Grid */}
+      {filteredProducts.length > 0 ? (
+        <div className="shop-page__grid">
+          {filteredProducts.map(p => (
+            <div key={p.id} className="sp-card" onClick={() => onNavigate('product', { productId: p.id })}>
+              <div className="sp-card__img-wrap">
+                <img src={p.img} alt={p.name} className="sp-card__img" />
+              </div>
+              <div className="sp-card__body">
+                <p className="sp-card__category">{p.category}</p>
+                <p className="sp-card__name">{p.name}</p>
+                <div className="sp-card__footer">
+                  <span className="sp-card__price">{p.price}</span>
+                  <button className="sp-add-btn" onClick={(e) => { e.stopPropagation(); alert('Added to cart!') }}>Add to Bag</button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div className="no-results">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+          </svg>
+          <h3>No products found</h3>
+          <p>Try searching with different keywords like "lip butter", "natural", or "honey"</p>
+          <button className="shop-page__quiz-btn" onClick={handleClearSearch}>Clear Search</button>
+        </div>
+      )}
 
       <div className="shop-page__info">
         <h2 className="shop-page__info-title">Lip Care</h2>

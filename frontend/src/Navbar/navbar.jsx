@@ -3,13 +3,57 @@ import AlowedaLogo from '../assets/AlowedaLogo.png'
 import { CATEGORIES } from '../data/products'
 import './navbar.css'
 
+// Import product images for search
+import SC1  from '../SkinCareImg/SkinCare1.png'
+import SC2  from '../SkinCareImg/SkinCare2.png'
+import SC3  from '../SkinCareImg/SkinCare3.jpg'
+import SC4  from '../SkinCareImg/SkinCare4.jpg'
+import SC5  from '../SkinCareImg/SkinCare5.jpg'
+import SC6  from '../SkinCareImg/SkinCare6.jpg'
+import SC7  from '../SkinCareImg/SkinCare7.jpg'
+import SC8  from '../SkinCareImg/SkinCare8.jpg'
+import SC9  from '../SkinCareImg/SkinCare9.jpg'
+import SC10 from '../SkinCareImg/SkinCare10.jpg'
+import SC11 from '../SkinCareImg/SkinCare11.jpg'
+import SC12 from '../SkinCareImg/SkinCare12.jpg'
+import SC13 from '../SkinCareImg/SkinCare13.jpg'
+import SC14 from '../SkinCareImg/SkinCare14.jpg'
+import SC15 from '../SkinCareImg/SkinCare15.jpg'
+import HairCareImg from '../assets/HairCare.png'
+import LC1 from '../LipCareImg/LipCare1.jpg'
+import LC2 from '../LipCareImg/LipCare2.jpg'
+
+// All products for search
+const ALL_SEARCH_PRODUCTS = [
+  { id:1,  img:SC1,  name:'YOUR SIMPLE ROUTINE: The Day Cream + The Night Cream + Lip Butter', category: 'Combo', keywords: 'day cream night cream lip butter routine combo kit', price:'₹ 799' },
+  { id:2,  img:SC2,  name:'PERFECT COMPLEXION RITUAL: Pigment Control Serum + The Day Cream + Complexion Cream + Smooth Perfection Serum', category: 'Combo', keywords: 'pigment control serum day cream complexion smooth perfection ritual combo kit', price:'₹ 999' },
+  { id:3,  img:SC3,  name:'RITUAL OF RADIANCE: Super Glow Serum 30 ml + The Day Cream + Radiance Cream 50 gram', category: 'Combo', keywords: 'super glow serum day cream radiance ritual combo kit glow', price:'₹ 999' },
+  { id:4,  img:SC4,  name:'Hyaluronic Acid, SPF 30 & Vitamin E : The Day Cream 50 G', category: 'Cream', keywords: 'hyaluronic acid spf vitamin e day cream moisturizer sunscreen protection', price:'₹ 249' },
+  { id:5,  img:SC5,  name:'Retinol 1%, Niacinamide 10 %, Aloe Vera Extract & Carrot oil: The Night Cream 50 G', category: 'Cream', keywords: 'retinol niacinamide aloe vera carrot oil night cream anti aging', price:'₹ 399' },
+  { id:6,  img:SC6,  name:'Saffron Face Oil 30 ml: Saffron Essential Oil, Sweet Almond oil, Grape Seed Oil, Honey & Ghee', category: 'Oil', keywords: 'saffron face oil almond grape seed honey ghee natural glow', price:'₹ 799' },
+  { id:7,  img:SC7,  name:'Alpha Arbutin 2%, Vitamin C 15 % & Micro Crystalline Wax: Complexion Cream 50 G', category: 'Cream', keywords: 'alpha arbutin vitamin c complexion brightening pigmentation dark spots', price:'₹ 399' },
+  { id:8,  img:SC8,  name:'Vitamin C 15%, Ferulic Acid 1% & Niacinamide 5% : Super Glow Serum 30 ml', category: 'Serum', keywords: 'vitamin c ferulic acid niacinamide super glow serum brightening radiance', price:'₹ 549' },
+  { id:9,  img:SC9,  name:'Alpha Arbutin 2%, Aloe Vera Extract, Ceramides & Kojic Acid 1%: Pigment Control Serum 30 ml', category: 'Serum', keywords: 'alpha arbutin aloe vera ceramides kojic acid pigment control dark spots', price:'₹ 399' },
+  { id:10, img:SC10, name:'Retinol 0.3%, Copper Tripeptide, Alpha Arbutin & Niacinamide: Wrinkles & Lines Cream 50 G', category: 'Cream', keywords: 'retinol copper tripeptide alpha arbutin niacinamide wrinkles lines anti aging', price:'₹ 449' },
+  { id:11, img:SC11, name:'Encapsulated Retinol 1 %, Grape Seed Extract, & Ceramides : Lines & Wrinkles Serum 30 ml', category: 'Serum', keywords: 'retinol grape seed ceramides lines wrinkles anti aging serum', price:'₹ 499' },
+  { id:12, img:SC12, name:'Niacinamide 10 %, Acetyl Glucosamine & Ceramides: Tone & Texture Serum 30 ml', category: 'Serum', keywords: 'niacinamide acetyl glucosamine ceramides tone texture smooth skin', price:'₹ 375', mrp:'₹ 545' },
+  { id:13, img:SC13, name:'Salicylic Acid 2%, Witch Hazel Extract & Squalene: Smooth Perfection Serum 30 ml', category: 'Serum', keywords: 'salicylic acid witch hazel squalene smooth perfection acne pores', price:'₹ 449' },
+  { id:14, img:SC14, name:'Vitamin C 20%, Kojic Acid, Avocado Extract & Argan Oil : Radiance Cream 50 G', category: 'Cream', keywords: 'vitamin c kojic acid avocado argan oil radiance brightening glow', price:'₹ 399' },
+  { id:15, img:SC15, name:'Anti Acne Face wash: 100 ml, Salicylic Acid 2% for Oily & Acne Prone Skin', category: 'Face Wash', keywords: 'anti acne face wash salicylic acid oily acne prone cleanser', price:'₹ 185' },
+  { id:16, img:HairCareImg, name:'Redensyl 5%, Anagain 5%, Rice water & Biotin: Total Hair Therapy Serum 50 ml', category: 'Hair Serum', keywords: 'redensyl anagain rice water biotin hair therapy serum growth hair fall', price:'₹ 575' },
+  { id:17, img:LC1, name:'Lip Butter 8 Gram: Butters, Oils & Honey. ZERO CHEMICALS, NO PRESERVATIVES', category: 'Lip Butter', keywords: 'lip butter butters oils honey natural organic chemical free preservative free', price:'Rs. 75.00' },
+  { id:18, img:LC2, name:'Lip Butter 15 Gram: Butters, Oils & Honey. NO CHEMICALS, NO PRESERVATIVES. NOT LIP BALM', category: 'Lip Butter', keywords: 'lip butter butters oils honey natural organic chemical free preservative free balm', price:'From Rs. 165.00' },
+]
+
 export default function Navbar({ onNavigate, cartCount = 0 }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [shopOpen, setShopOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const [searchResults, setSearchResults] = useState([])
   const searchRef = useRef(null)
+  const dropdownRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -21,11 +65,47 @@ export default function Navbar({ onNavigate, cartCount = 0 }) {
     if (searchOpen) searchRef.current?.focus()
   }, [searchOpen])
 
+  // Real-time search filtering
+  useEffect(() => {
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase()
+      const filtered = ALL_SEARCH_PRODUCTS.filter(product => 
+        product.name.toLowerCase().includes(query) || 
+        product.category.toLowerCase().includes(query) ||
+        product.keywords.toLowerCase().includes(query)
+      )
+      setSearchResults(filtered)
+    } else {
+      setSearchResults([])
+    }
+  }, [searchQuery])
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setSearchResults([])
+        setSearchQuery('')
+        setSearchOpen(false)
+      }
+    }
+    if (searchOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [searchOpen])
+
   const nav = (page, params) => {
     setMenuOpen(false)
     setShopOpen(false)
     setSearchOpen(false)
+    setSearchResults([])
+    setSearchQuery('')
     onNavigate?.(page, params)
+  }
+
+  const handleProductClick = (productId) => {
+    nav('product', { id: productId })
   }
 
   return (
@@ -44,16 +124,20 @@ export default function Navbar({ onNavigate, cartCount = 0 }) {
             </button>
             {shopOpen && (
               <div className="navbar__dropdown">
-                <a className="navbar__dropdown-item navbar__dropdown-item--all"
-                  href="#" onClick={e => { e.preventDefault(); nav('shop') }}>
-                  All Products
-                </a>
-                {CATEGORIES.map((c) => (
-                  <a key={c.id} href="#" className="navbar__dropdown-item"
-                    onClick={e => { e.preventDefault(); nav(c.id) }}>
-                    {c.label}
-                  </a>
-                ))}
+                {/* Smart Skincare with submenu */}
+                <div className="navbar__dropdown-category">
+                  <span className="navbar__dropdown-item navbar__dropdown-item--parent">
+                    Smart Skincare
+                  </span>
+                  <div className="navbar__dropdown-submenu">
+                    {CATEGORIES.filter(c => c.parent === 'skincare').map((c) => (
+                      <a key={c.id} href="#" className="navbar__dropdown-subitem"
+                        onClick={e => { e.preventDefault(); nav(c.id) }}>
+                        {c.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -70,20 +154,54 @@ export default function Navbar({ onNavigate, cartCount = 0 }) {
         {/* Right */}
         <div className="navbar__right">
           {searchOpen ? (
-            <div className="navbar__search-bar">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
-              </svg>
-              <input
-                ref={searchRef}
-                type="text"
-                placeholder="Search products…"
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-                onKeyDown={e => { if (e.key === 'Enter' && searchQuery.trim()) { nav('shop', { search: searchQuery.trim() }); setSearchQuery('') } }}
-                className="navbar__search-input"
-              />
-              <button className="navbar__search-close" onClick={() => { setSearchOpen(false); setSearchQuery('') }}>✕</button>
+            <div className="navbar__search-container" ref={dropdownRef}>
+              <div className="navbar__search-bar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+                </svg>
+                <input
+                  ref={searchRef}
+                  type="text"
+                  placeholder="Search products…"
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  className="navbar__search-input"
+                />
+                <button className="navbar__search-close" onClick={() => { setSearchOpen(false); setSearchQuery(''); setSearchResults([]) }}>✕</button>
+              </div>
+              
+              {/* Search Results Dropdown */}
+              {searchResults.length > 0 && (
+                <div className="navbar__search-dropdown">
+                  {searchResults.slice(0, 5).map(product => (
+                    <div 
+                      key={product.id} 
+                      className="navbar__search-result"
+                      onClick={() => handleProductClick(product.id)}
+                    >
+                      <img src={product.img} alt={product.name} className="navbar__search-result-img" />
+                      <div className="navbar__search-result-info">
+                        <div className="navbar__search-result-name">{product.name}</div>
+                        <div className="navbar__search-result-price">{product.price}</div>
+                      </div>
+                    </div>
+                  ))}
+                  {searchResults.length > 5 && (
+                    <div 
+                      className="navbar__search-result-more"
+                      onClick={() => nav('shop', { search: searchQuery.trim() })}
+                    >
+                      +{searchResults.length - 5} more results - Click to view all
+                    </div>
+                  )}
+                </div>
+              )}
+              
+              {searchQuery.trim() && searchResults.length === 0 && (
+                <div className="navbar__search-dropdown">
+                  <div className="navbar__search-no-results">No products found</div>
+                </div>
+              )}
             </div>
           ) : (
             <button className="navbar__icon-btn" aria-label="Search" onClick={() => setSearchOpen(true)}>
@@ -117,8 +235,8 @@ export default function Navbar({ onNavigate, cartCount = 0 }) {
           <a href="#" className="navbar__mobile-link" onClick={e => { e.preventDefault(); nav('home') }}>Home</a>
           <a href="#" className="navbar__mobile-link" onClick={e => { e.preventDefault(); nav('shop') }}>All Products</a>
           <a href="#" className="navbar__mobile-link" onClick={e => { e.preventDefault(); nav('bestsellers') }}>Best Sellers</a>
-          <div className="navbar__mobile-divider">Shop by Category</div>
-          {CATEGORIES.map((c) => (
+          <div className="navbar__mobile-divider">Smart Skincare</div>
+          {CATEGORIES.filter(c => c.parent === 'skincare').map((c) => (
             <a key={c.id} href="#" className="navbar__mobile-link navbar__mobile-link--sub"
               onClick={e => { e.preventDefault(); nav(c.id) }}>
               {c.icon} {c.label}

@@ -243,6 +243,9 @@
 .section__header--left .section__desc { margin: 0; }
 .section__cta { text-align: center; margin-top: 52px; }
 
+/* Reduce bottom padding for best-sellers to eliminate gap above ImageCarousel */
+.best-sellers { padding-bottom: 40px; }
+
 /* ─── CATEGORIES ─── */
 .categories-section { background: var(--cream); border-radius: 24px; }
 .categories-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
@@ -255,15 +258,127 @@
 @media (max-width: 500px) { .categories-grid { grid-template-columns: repeat(2, 1fr); } }
 
 /* ─── WHY ALOWEDA ─── */
-.why-section { background: var(--cream-darker); border-radius: 24px; }
-.why-section__inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
-.pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.pillar-card { padding: 28px 24px; background: var(--warm-white); border: 1px solid var(--border); border-radius: 12px; transition: box-shadow 0.3s, transform 0.3s; }
-.pillar-card:hover { box-shadow: var(--shadow-soft); transform: translateY(-2px); }
-.pillar-card__icon { font-size: 28px; margin-bottom: 14px; }
-.pillar-card__title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--text-dark); margin-bottom: 8px; }
-.pillar-card__desc { font-size: 13px; color: var(--text-light); line-height: 1.7; }
-@media (max-width: 900px) { .why-section__inner { grid-template-columns: 1fr; gap: 40px; } .why-section .section__header--left { text-align: center; } .why-section .section__desc { margin: 0 auto; } }
+.why-section { 
+  background: var(--cream-darker); 
+  border-radius: 0;
+  padding: 80px 60px;
+  margin: 80px 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.why-section__inner { 
+  display: grid; 
+  grid-template-columns: 1fr 2fr; 
+  gap: 80px; 
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pillars-grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 32px;
+  row-gap: 32px;
+}
+
+.pillar-card { 
+  padding: 32px 28px; 
+  background: var(--warm-white); 
+  border: 1px solid var(--border); 
+  border-radius: 12px; 
+  transition: box-shadow 0.3s, transform 0.3s;
+  height: 100%;
+}
+
+.pillar-card:hover { 
+  box-shadow: var(--shadow-soft); 
+  transform: translateY(-2px); 
+}
+
+.pillar-card__icon { 
+  font-size: 32px; 
+  margin-bottom: 16px; 
+}
+
+.pillar-card__title { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 20px; 
+  font-weight: 500; 
+  color: var(--text-dark); 
+  margin-bottom: 10px; 
+}
+
+.pillar-card__desc { 
+  font-size: 14px; 
+  color: var(--text-light); 
+  line-height: 1.7; 
+}
+
+/* Tablet */
+@media (max-width: 1024px) { 
+  .why-section {
+    padding: 70px 40px;
+  }
+  
+  .why-section__inner { 
+    grid-template-columns: 1fr; 
+    gap: 50px; 
+  }
+  
+  .pillars-grid {
+    gap: 28px;
+    row-gap: 28px;
+  }
+  
+  .why-section .section__header--left { 
+    text-align: center; 
+  }
+  
+  .why-section .section__desc { 
+    margin: 0 auto; 
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .why-section {
+    padding: 60px 24px;
+    margin: 60px 0;
+  }
+  
+  .why-section__inner {
+    gap: 40px;
+  }
+  
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .pillar-card {
+    padding: 28px 24px;
+  }
+  
+  .pillar-card__icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+  
+  .pillar-card__title {
+    font-size: 19px;
+  }
+  
+  .pillar-card__desc {
+    font-size: 13px;
+  }
+}
+
 
 /* ─── TESTIMONIALS ─── */
 .testimonials-section { background: var(--warm-white); }
@@ -277,3 +392,362 @@
 .testimonial-card__loc { font-size: 12px; color: var(--text-light); }
 @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
 @media (max-width: 600px) { .section { padding: 64px 20px; } }
+
+
+/* ─── ALOWEDA INTRO SECTION ─── */
+.aloweda-intro {
+  background: linear-gradient(135deg, #faf8f4 0%, #f5f2eb 100%);
+  padding: 120px 48px 140px;
+  margin: 80px 0;
+  position: relative;
+}
+
+.aloweda-intro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.aloweda-intro::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.aloweda-intro__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aloweda-intro__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.3;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+  min-height: 70px;
+}
+
+.aloweda-intro__title.typing::after {
+  content: '|';
+  animation: blink 0.7s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.aloweda-intro__description {
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--text-mid);
+  margin-bottom: 50px;
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 200px;
+}
+
+.aloweda-intro__description.typing::after {
+  content: '|';
+  animation: blink 0.7s infinite;
+  margin-left: 2px;
+}
+
+.aloweda-intro__btn {
+  background: var(--cream);
+  color: var(--text-dark);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  padding: 18px 56px;
+  border: 2px solid var(--text-dark);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 4px 12px rgba(44, 36, 22, 0.1);
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.aloweda-intro__btn:hover {
+  background: var(--text-dark);
+  color: var(--warm-white);
+  border-color: var(--text-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(44, 36, 22, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .aloweda-intro {
+    padding: 100px 24px 120px;
+    margin: 60px 0;
+  }
+
+  .aloweda-intro__title {
+    font-size: 36px;
+    min-height: 50px;
+    margin-bottom: 30px;
+  }
+
+  .aloweda-intro__description {
+    font-size: 16px;
+    line-height: 1.8;
+    min-height: 150px;
+    margin-bottom: 40px;
+  }
+
+  .aloweda-intro__btn {
+    width: 100%;
+    padding: 16px 32px;
+  }
+}
+
+
+
+/* ─── LOOK BOOK SLIDER SECTION ─── */
+.lookbook-section {
+  padding: 0;
+  background: var(--warm-white);
+}
+
+.lookbook-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+/* Left side - Background slider */
+.lookbook-left {
+  position: relative;
+  overflow: hidden;
+}
+
+.lookbook-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.lookbook-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.lookbook-category {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  z-index: 2;
+  letter-spacing: -0.5px;
+}
+
+/* Slider arrows */
+.lookbook-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 3;
+  color: var(--text-dark);
+}
+
+.lookbook-arrow:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.lookbook-arrow--prev {
+  left: 20px;
+}
+
+.lookbook-arrow--next {
+  right: 20px;
+}
+
+/* Right side - Products */
+.lookbook-right {
+  background: white;
+  padding: 60px 40px;
+  overflow-y: auto;
+}
+
+.lookbook-title {
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+}
+
+.lookbook-products {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.lookbook-product {
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.lookbook-product:hover {
+  background: var(--warm-white);
+  transform: translateX(4px);
+}
+
+.lookbook-product__img {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--warm-white);
+}
+
+.lookbook-product__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lookbook-product__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.lookbook-product__name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lookbook-product__price {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .lookbook-container {
+    grid-template-columns: 1fr;
+  }
+
+  .lookbook-left {
+    min-height: 500px;
+  }
+
+  .lookbook-right {
+    padding: 50px 30px;
+  }
+
+  .lookbook-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lookbook-left {
+    min-height: 400px;
+  }
+
+  .lookbook-right {
+    padding: 40px 24px;
+  }
+
+  .lookbook-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .lookbook-category {
+    font-size: 28px;
+    bottom: 30px;
+  }
+
+  .lookbook-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .lookbook-arrow--prev {
+    left: 12px;
+  }
+
+  .lookbook-arrow--next {
+    right: 12px;
+  }
+
+  .lookbook-product__img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .lookbook-product__name {
+    font-size: 14px;
+  }
+}

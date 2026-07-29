@@ -34,7 +34,7 @@
   align-items: center;
   gap: 0;
   width: max-content;
-  animation: carousel-scroll 24s linear infinite;
+  animation: carousel-scroll 40s linear infinite;
 }
 .img-carousel:hover .img-carousel__track {
   animation-play-state: paused;

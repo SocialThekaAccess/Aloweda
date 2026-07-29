@@ -1,0 +1,286 @@
+/* ==========================================
+   SEARCH RESULTS BANNER
+   ========================================== */
+.search-results-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  max-width: 1400px;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.search-results-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.search-results-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.search-clear-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  margin-left: auto;
+}
+
+.search-clear-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* ==========================================
+   SHOP PAGE SEARCH BAR
+   ========================================== */
+
+/* Remove any overlay from product cards */
+.sp-card .product-card__overlay,
+.sp-card__overlay {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+.sp-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.sp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Ensure the card is clickable */
+.sp-card * {
+  pointer-events: none;
+}
+
+.sp-card {
+  pointer-events: auto;
+}
+
+/* But allow button clicks */
+.sp-add-btn {
+  pointer-events: auto;
+}
+
+.shop-page__search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  min-width: 300px;
+  transition: all 0.3s ease;
+}
+
+.shop-page__search:focus-within {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.shop-page__search svg {
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.shop-page__search-input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 0.95rem;
+  color: #1f2937;
+  background: transparent;
+}
+
+.shop-page__search-input::placeholder {
+  color: #9ca3af;
+}
+
+.shop-page__search-clear {
+  background: #f3f4f6;
+  border: none;
+  color: #6b7280;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.shop-page__search-clear:hover {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+/* ==========================================
+   PRODUCT CARD CATEGORY
+   ========================================== */
+.sp-card__category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #667eea;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+/* ==========================================
+   NO RESULTS STATE
+   ========================================== */
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.no-results svg {
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.no-results p {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+@media (max-width: 768px) {
+  .search-results-banner {
+    padding: 0.75rem 1rem;
+    margin: 0 1rem 1rem;
+  }
+
+  .search-results-text {
+    font-size: 0.9rem;
+  }
+
+  .shop-page__search {
+    min-width: 200px;
+    width: 100%;
+  }
+
+  .shop-page__topbar {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch !important;
+  }
+
+  .no-results {
+    padding: 3rem 1rem;
+  }
+
+  .no-results h3 {
+    font-size: 1.25rem;
+  }
+
+  .no-results p {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ==========================================
+   CATEGORY FILTER PILLS
+   ========================================== */
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+  padding: 0 20px;
+}
+
+.category-pill {
+  background: var(--cream);
+  border: 2px solid var(--border);
+  color: var(--text-mid);
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Inter', sans-serif;
+}
+
+.category-pill:hover {
+  border-color: var(--gold);
+  color: var(--text-dark);
+  background: var(--cream);
+}
+
+.category-pill--active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.category-pill--active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+
+/* ==========================================
+   ALL PRODUCTS PAGE - SIMPLE HEADER
+   ========================================== */
+.all-products-page .shop-page__hero {
+  display: none;
+}
+
+.all-products-header {
+  padding: 120px 20px 40px;
+  text-align: center;
+  background: var(--warm-white);
+}
+
+.all-products-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+.all-products-count {
+  font-size: 1rem;
+  color: var(--text-mid);
+  font-weight: 400;
+}

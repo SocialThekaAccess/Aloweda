@@ -3,13 +3,13 @@
   width: 100%;
   background: var(--warm-white);
   min-height: 100vh;
-  padding-top: 88px;
+  padding-top: 88px; /* Navbar height */
 }
 
 /* Top bar */
 .shop-page__hero {
   text-align: center;
-  padding: 48px 48px 32px;
+  padding: 24px 48px 20px; /* Reduced from 48px top padding */
   border-bottom: 1px solid var(--border);
 }
 .shop-page__hero-title {
@@ -23,7 +23,7 @@
 .shop-page__topbar {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 28px 48px 20px;
+  padding: 20px 48px 16px; /* Reduced from 28px top padding */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,7 +40,7 @@
 .shop-page__grid {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 40px 48px 80px;
+  padding: 32px 48px 60px; /* Reduced from 40px top padding */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
@@ -53,7 +53,30 @@
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease;
+  position: relative;
 }
+
+/* Remove any overlay that might appear */
+.sp-card .product-card__overlay,
+.sp-card__overlay {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+/* Make entire card clickable */
+.sp-card * {
+  pointer-events: none;
+}
+
+.sp-card {
+  pointer-events: auto;
+}
+
+/* But allow button to be clickable */
+.sp-add-btn {
+  pointer-events: auto;
+}
+
 .sp-card:hover { transform: translateY(-3px); }
 .sp-card__img-wrap {
   position: relative;
@@ -102,7 +125,7 @@
 .shop-page__info {
   background: white;
   text-align: center;
-  padding: 80px 48px;
+  padding: 60px 48px; /* Reduced from 80px */
   border-top: 1px solid var(--border);
 }
 .shop-page__info-title {

@@ -119,12 +119,12 @@ export default function BestSellers({ onNavigate }) {
             )
           }
           return (
-            <div key={p.id} className="product-card">
+            <div key={p.id} className="product-card" onClick={() => onNavigate && onNavigate('product', { productId: p.id })}>
               <div className="product-card__img-wrap">
                 <img src={p.img} alt={p.name} className="product-card__img" />
                 <span className="product-card__tag">{p.tag}</span>
                 <div className="product-card__overlay">
-                  <button className="btn btn--white">Quick View</button>
+                  <button className="btn btn--white" onClick={(e) => { e.stopPropagation(); onNavigate && onNavigate('product', { productId: p.id }) }}>Quick View</button>
                 </div>
               </div>
               <div className="product-card__body">
@@ -134,7 +134,7 @@ export default function BestSellers({ onNavigate }) {
                     <span className="product-card__price">{p.price}</span>
                     {p.mrp && <span className="product-card__mrp">{p.mrp}</span>}
                   </div>
-                  <button className="btn btn--outline-dark btn--sm">Add to Bag</button>
+                  <button className="btn btn--outline-dark btn--sm" onClick={(e) => { e.stopPropagation(); alert('Added to cart!') }}>Add to Bag</button>
                 </div>
               </div>
             </div>
